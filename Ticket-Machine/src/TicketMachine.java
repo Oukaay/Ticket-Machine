@@ -28,6 +28,7 @@ public class TicketMachine {
             throw new TrocoInexistenteException();
         }else {
             troco = saldo;
+            saldo = 0;
         }
         
         System.out.println("Troco =" + troco);

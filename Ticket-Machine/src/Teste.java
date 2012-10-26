@@ -22,13 +22,13 @@ public class Teste {
             		           "1-Inserir papel-moeda\n" +
                                "2-Imprimir bilhete\n" +
                                "3-Troco\n" +
-                               "N�mero: ");
+                               "Numero: ");
             op = scanner.nextInt();
 
             switch(op) {
                 case 1:
                     try {
-                        System.out.println("Insira o papel-moeda.");
+                        System.out.println("Insira o dinheiro");
                         ticketMachine.inserir(scanner.nextInt());
                     } catch (NotainvalidaException e) {
                         System.out.println(e.getMessage());
@@ -44,8 +44,13 @@ public class Teste {
                     
                     break;
                 case 3:
+                    try{
                 	System.out.println("A devolver troco, aguarde...");
+                        ticketMachine.troco();
                 	System.out.println("Troco devolvido.\n");
+                    } catch (TrocoInexistenteException e){
+                        System.out.println(e.getMessage());
+                    }
                     break; 
                 default:
                     System.out.println("ERRO! Op��o inv�lida. Tente novamente.\n");
