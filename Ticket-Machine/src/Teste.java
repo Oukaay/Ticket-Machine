@@ -1,25 +1,26 @@
 
 
 import java.util.Scanner;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 
 public class Teste {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int preco = 3, op = 0;
-
+        int preco = 0, op = 0, qtde = 0;
+        
+        System.out.println("Quantos bilhetes deseja: ");
+        qtde = scanner.nextInt();
+        preco = qtde*3;
         TicketMachine ticketMachine = new TicketMachine(preco);
 
         
         while (op == 0) {
-            System.out.println("O que deseja fazer?\n" +
-            		           "1-Inserir papel-moeda\n" +
-                               "2-Imprimir bilhete\n" +
-                               "3-Troco\n" +
+            System.out.println("1 - Inserir papel-moeda\n" +
+                               "2 - Imprimir bilhete\n" +
+                               "3 - Troco\n" +
                                "4 - Sair\n" +
-                               "Numero: ");
+                               "Opcao: ");
             op = scanner.nextInt();
 
             switch(op) {
@@ -42,9 +43,7 @@ public class Teste {
                     break;
                 case 3:
                     try{
-                	System.out.println("A devolver troco, aguarde...");
-                        ticketMachine.troco();
-                	System.out.println("Troco devolvido.\n");
+                	System.out.println(ticketMachine.troco());
                     } catch (TrocoInexistenteException e){
                         System.out.println(e.getMessage());
                     }

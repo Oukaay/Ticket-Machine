@@ -1,14 +1,14 @@
 
-
-
 public class TicketMachine {
     private int saldo = 0;
     private int preco = 0;
     private int troco = 0;
 
+
     public TicketMachine(int preco) {
         this.preco = preco;
     }
+    
     public void inserir(int quantia) throws NotainvalidaException {
         System.out.println("Validando nota inserida");
 
@@ -30,11 +30,13 @@ public class TicketMachine {
             troco = saldo;
             saldo = 0;
         }
-        
+        System.out.println("Contando as notas, aguarde...");
         System.out.println("Troco = " + troco);
+        System.out.println("Retire seu troco.\n");
+        System.out.println("Saldo Atual: " + saldo);
     return buffer.toString();
     }
-    
+  
     public String imprimir() throws SaldoInsuficienteException {
         StringBuffer buffer = new StringBuffer();
         if (saldo < preco) {
@@ -42,7 +44,7 @@ public class TicketMachine {
         } else {
             saldo -= preco;
         }
-        
+       
         System.out.println("Imprimindo seu bilhete");
         System.out.println("-------------------------");
         System.out.println("Total: " + preco);
