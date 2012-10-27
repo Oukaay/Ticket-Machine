@@ -1,18 +1,14 @@
 
 
 import java.util.Scanner;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 
 public class Teste {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int preco = 0, op = 0;
-
-        System.out.println("TICKET MACHINE\n");
-        System.out.println("Por favor, digite o valor do bilhete que deseja comprar:\n");
-
-        preco = scanner.nextInt();
+        int preco = 3, op = 0;
 
         TicketMachine ticketMachine = new TicketMachine(preco);
 
@@ -22,6 +18,7 @@ public class Teste {
             		           "1-Inserir papel-moeda\n" +
                                "2-Imprimir bilhete\n" +
                                "3-Troco\n" +
+                               "4 - Sair\n" +
                                "Numero: ");
             op = scanner.nextInt();
 
@@ -51,9 +48,12 @@ public class Teste {
                     } catch (TrocoInexistenteException e){
                         System.out.println(e.getMessage());
                     }
-                    break; 
+                    break;
+                case 4:
+                   System.exit(0);
+                    break;
                 default:
-                    System.out.println("ERRO! Op��o inv�lida. Tente novamente.\n");
+                    System.out.println("ERRO! Opcao invalida. Tente novamente.\n");
                     break;
             }
 

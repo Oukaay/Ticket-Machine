@@ -31,7 +31,7 @@ public class TicketMachine {
             saldo = 0;
         }
         
-        System.out.println("Troco =" + troco);
+        System.out.println("Troco = " + troco);
     return buffer.toString();
     }
     
