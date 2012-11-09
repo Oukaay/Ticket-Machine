@@ -1,12 +1,12 @@
 
 public class TicketMachine {
     private int saldo = 0;
-    private int preco = 0;
+    private int preco = 3;
     private int troco = 0;
+    private int qtde;
 
-
-    public TicketMachine(int preco) {
-        this.preco = preco;
+    public TicketMachine(int qtdade) {
+        this.qtde = qtdade;
     }
     
     public void inserir(int quantia) throws NotainvalidaException {
@@ -19,36 +19,36 @@ public class TicketMachine {
 
         this.saldo += quantia;
 
-        System.out.println("Nota Valida.\nSaldo atual: " + this.saldo);
+        System.out.println("Nota Valida.\nSaldo atual R$: " + this.saldo);
     }
     
-    public String troco() throws TrocoInexistenteException {
-        StringBuffer buffer = new StringBuffer();
+    public void troco() throws TrocoInexistenteException {
+        
         if(saldo == 0){
             throw new TrocoInexistenteException();
         }else {
             troco = saldo;
             saldo = 0;
         }
-        System.out.println("Contando as notas, aguarde...");
-        System.out.println("Troco = " + troco);
-        System.out.println("Retire seu troco.\n");
-        System.out.println("Saldo Atual: " + saldo);
-    return buffer.toString();
+        
+        System.out.println("Retire seu troco R$: " + troco);
+                
     }
   
-    public String imprimir() throws SaldoInsuficienteException {
+    public String imprimirPassagem() throws SaldoInsuficienteException {
         StringBuffer buffer = new StringBuffer();
-        if (saldo < preco) {
+        int subtotal = preco*qtde;
+        if (saldo < subtotal) {
             throw new SaldoInsuficienteException();
         } else {
-            saldo -= preco;
+            saldo -= subtotal;
+            
         }
        
         System.out.println("Imprimindo seu bilhete");
         System.out.println("-------------------------");
-        System.out.println("Total: " + preco);
-        System.out.println("Saldo atual: " + saldo + "");
+        System.out.println("Total R$: " + subtotal);
+        System.out.println("Saldo atual R$: " + saldo + "");
         System.out.println("-------------------------");
         return buffer.toString();
     }

@@ -3,7 +3,7 @@
 import java.util.Scanner;
 
 
-public class Teste {
+public class Main {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -11,8 +11,7 @@ public class Teste {
         
         System.out.println("Quantos bilhetes deseja: ");
         qtde = scanner.nextInt();
-        preco = qtde*3;
-        TicketMachine ticketMachine = new TicketMachine(preco);
+        TicketMachine ticketMachine = new TicketMachine(qtde);
 
         
         while (op == 0) {
@@ -35,7 +34,7 @@ public class Teste {
                     break;
                 case 2:
                     try {
-                        System.out.println(ticketMachine.imprimir());
+                        System.out.println(ticketMachine.imprimirPassagem());
                     } catch(SaldoInsuficienteException e) {
                         System.out.println(e.getMessage());
                     }
@@ -43,7 +42,7 @@ public class Teste {
                     break;
                 case 3:
                     try{
-                	System.out.println(ticketMachine.troco());
+                	ticketMachine.troco();
                     } catch (TrocoInexistenteException e){
                         System.out.println(e.getMessage());
                     }
